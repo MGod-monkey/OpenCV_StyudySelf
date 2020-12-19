@@ -1,6 +1,5 @@
 import cv2 as cv
 import numpy as np
-import random
 
 def use_capture_video():
     capture = cv.VideoCapture(0)  # 启用摄像头
