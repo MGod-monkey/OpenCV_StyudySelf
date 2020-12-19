@@ -1,5 +1,6 @@
 import cv2 as cv
 import numpy as np
+import random
 
 def use_capture_video():
     capture = cv.VideoCapture(0)  # 启用摄像头
@@ -20,7 +21,6 @@ def get_img_info(img):
 
 
 src = cv.imread('./img/saonv.jpg')  # 载入图片资源
-
 cv.namedWindow('show_img')  # 给窗口命名
 cv.imshow('show_img',src)   # 将图像展示在已命名的窗口上
 cv.waitKey(0)   # 等待左键按下执行下一步，没有这一步图片将会闪退
