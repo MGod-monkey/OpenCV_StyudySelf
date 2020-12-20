@@ -16,7 +16,7 @@ def count_time(fn):
 # 调用摄像头模块
 def use_capture_video():
     capture = cv.VideoCapture(0)  # 启用摄像头
-    while(True):  # 不停读取摄像头捕捉到的图像并形成视屏
+    while True:  # 不停读取摄像头捕捉到的图像并形成视屏
         ret,frame = capture.read()
         frame = cv.flip(frame,1)  # 镜像翻转
         cv.imshow('video',frame)
@@ -50,6 +50,6 @@ cv.namedWindow('show_img')  # 给窗口命名
 cv.imshow('show_img',src)   # 将图像展示在已命名的窗口上
 reverse_pixels(src)
 use_capture_video()
-cv.waitKey(0)   # 等待左键按下执行下一步，没有这一步图片将会闪退
+cv.waitKey(0)
 cv.destroyWindow('show_img')    # 关闭窗口
 
