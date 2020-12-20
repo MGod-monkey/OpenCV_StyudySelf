@@ -1,6 +1,7 @@
 import cv2 as cv
 import numpy as np
 
+# 调用摄像头模块
 def use_capture_video():
     capture = cv.VideoCapture(0)  # 启用摄像头
     while(True):  # 不停读取摄像头捕捉到的图像并形成视屏
@@ -11,7 +12,7 @@ def use_capture_video():
         if c == 27:
             break
 
-
+# 获取图像信息
 def get_img_info(img):
     print(img.shape)
     print(img.size)
@@ -19,11 +20,22 @@ def get_img_info(img):
     print(np.array(img))    # 将图像转换为一个个二位数组
 
 
+# 对图像进行像素取反
+def reverse_pixels(img):
+    new_img = cv.bitwise_not(img)
+    #new2_img = cv.bitwise_or(img,new_img)
+    #cv.imshow('saonv_or',new2_img)
+   # new3_img = cv.bitwise_and(img,new_img)
+    #cv.imshow('saonv_and',new3_img)
+    cv.imwrite('./img/saonv_reverse.jpg',new_img)
+    cv.imshow('saonv_reverse',new_img)
+
+
 src = cv.imread('./img/saonv.jpg')  # 载入图片资源
 cv.namedWindow('show_img')  # 给窗口命名
 cv.imshow('show_img',src)   # 将图像展示在已命名的窗口上
-cv.waitKey(0)   # 等待左键按下执行下一步，没有这一步图片将会闪退
-
+reverse_pixels(src)
 use_capture_video()
+cv.waitKey(0)   # 等待左键按下执行下一步，没有这一步图片将会闪退
 cv.destroyWindow('show_img')    # 关闭窗口
 
