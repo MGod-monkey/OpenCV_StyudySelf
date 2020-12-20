@@ -1,6 +1,18 @@
 import cv2 as cv
 import numpy as np
 
+
+# 计时装饰器
+def count_time(fn):
+    def inner(img=None):
+        start = cv.getTickCount()
+        fn(img)
+        end = cv.getTickCount()
+        count = (end-start)/cv.getTickFrequency()
+        print('函数[{}]耗时{:.5f} ms'.format(fn.__name__,count*1000))
+    return inner
+
+
 # 调用摄像头模块
 def use_capture_video():
     capture = cv.VideoCapture(0)  # 启用摄像头
@@ -12,6 +24,7 @@ def use_capture_video():
         if c == 27:
             break
 
+
 # 获取图像信息
 def get_img_info(img):
     print(img.shape)
@@ -21,6 +34,7 @@ def get_img_info(img):
 
 
 # 对图像进行像素取反
+@count_time
 def reverse_pixels(img):
     new_img = cv.bitwise_not(img)
     #new2_img = cv.bitwise_or(img,new_img)
