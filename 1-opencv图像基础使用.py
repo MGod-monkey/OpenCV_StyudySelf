@@ -41,11 +41,11 @@ def reverse_pixels(img):
     #cv.imshow('saonv_or',new2_img)
    # new3_img = cv.bitwise_and(img,new_img)
     #cv.imshow('saonv_and',new3_img)
-    cv.imwrite('./img/saonv_reverse.jpg',new_img)
+    cv.imwrite('img/素材/saonv_reverse.jpg', new_img)
     cv.imshow('saonv_reverse',new_img)
 
 
-src = cv.imread('./img/saonv.jpg')  # 载入图片资源
+src = cv.imread('img/素材/saonv.jpg')  # 载入图片资源
 cv.namedWindow('show_img')  # 给窗口命名
 cv.imshow('show_img',src)   # 将图像展示在已命名的窗口上
 reverse_pixels(src)

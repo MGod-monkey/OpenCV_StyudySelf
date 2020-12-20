@@ -14,9 +14,9 @@ def img_color_depart(img_path,img2_path):
     upper_black_hsv = np.array([180, 255, 46])
     mask = cv.inRange(img_hsv, lower_white_hsv, upper_white_hsv)
     mask2 = cv.inRange(img2_hsv, lower_black_hsv, upper_black_hsv)
-    cv.imwrite('./img/saonv_mask.jpg', mask)
+    cv.imwrite('img/素材/saonv_mask.jpg', mask)
     cv.imshow('img_mask', mask)
-    cv.imwrite('./img/saonv_reverse_mask.jpg', mask2)
+    cv.imwrite('img/素材/saonv_reverse_mask.jpg', mask2)
     cv.imshow('img_reverse_mask', mask2)
 
 
@@ -49,9 +49,9 @@ def img_channel_split(img_path):
     img_br[:,:,1] = 0
     img_gr = cv.merge([img_b,img_g,img_r])    # 合并G和R通道
     img_gr[:,:,0] = 0
-    cv.imwrite('./img/saonv_split_bg.jpg',img_bg)
-    cv.imwrite('./img/saonv_split_br.jpg',img_br)
-    cv.imwrite('./img/saonv_split_gr.jpg',img_gr)
+    cv.imwrite('img/素材/saonv_split_bg.jpg', img_bg)
+    cv.imwrite('img/素材/saonv_split_br.jpg', img_br)
+    cv.imwrite('img/素材/saonv_split_gr.jpg', img_gr)
     cv.imshow('saonv_bg',img_bg)
     cv.imshow('saonv_br',img_br)
     cv.imshow('saonv_gr',img_gr)
@@ -59,6 +59,6 @@ def img_channel_split(img_path):
 if __name__ == '__main__':
     #img_color_depart('./img/saonv.jpg','./img/saonv_reverse.jpg')
     #video_color_depart()
-    img_channel_split('./img/saonv.jpg')
+    img_channel_split('img/素材/saonv.jpg')
     cv.waitKey(0)
     cv.destroyAllWindows()  # 关闭窗口

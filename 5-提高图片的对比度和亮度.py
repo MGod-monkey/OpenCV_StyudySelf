@@ -10,10 +10,10 @@ def update_light(img_path,d,l):
     dst = cv.addWeighted(img,d,blank,1-d,l)
     cv.imshow('update_light',dst)
     cv.imshow('img',img)
-    cv.imwrite('./img/lena_light.jpg',dst)
+    cv.imwrite('img/素材/lena_light.jpg', dst)
 
 
 if __name__ == '__main__':
-    update_light('./img/lena.jpg',1.2,60)
+    update_light('img/素材/lena.jpg', 1.2, 60)
     cv.waitKey(0)
     cv.destroyAllWindows()
